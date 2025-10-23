@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypted - Secure File Protection</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="header-actions">
+                <button class="icon-btn" id="faqBtn">
+                    <i class="fas fa-question"></i>
+                </button>
+            </div>
+            <div class="logo-container">
+                <img src="logo.png" alt="Crypted Logo" class="logo-img">
+                <h1>Crypted</h1>
+            </div>
+            <p class="tagline">Advanced file protection system</p>
+            <div class="mode-indicator" id="modeIndicator">
+                <i class="fas fa-lock"></i>
+                <span id="modeText">Encryption Mode</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h2 id="uploadTitle">Drop files here to encrypt</h2>
+                    <p id="uploadSubtitle">or click to select files</p>
+                    <p class="warning-text">Use only for your own files. Do not encrypt systems without authorization.</p>
+                    <input type="file" id="fileInput" multiple class="file-input">
+                </div>
+
+                <div class="file-list" id="fileList"></div>
+            </div>
+
+            <div class="control-panel">
+                <div class="password-section">
+                    <h3><i class="fas fa-key"></i> <span id="passwordTitle">Set Encryption Password</span></h3>
+                    <div class="password-input-container">
+                        <input type="password" 
+                               class="password-input" 
+                               id="passwordInput"
+                               placeholder="Enter strong password (min 12 characters)...">
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+
+                    <div class="security-level">
+                        <div class="level-indicator">
+                            <div class="level-fill" id="levelFill"></div>
+                        </div>
+                        <div class="level-labels">
+                            <span id="labelLow">Low</span>
+                            <span id="labelMedium">Medium</span>
+                            <span id="labelHigh">High</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-section">
+                    <button class="btn btn-primary" id="actionBtn">
+                        <i class="fas fa-lock" id="actionIcon"></i>
+                        <span id="actionText">Encrypt Files</span>
+                    </button>
+                </div>
+
+                <div class="status-area" id="statusArea">
+                    <div id="statusText">Processing your files...</div>
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="faqPopup">
+        <div class="popup">
+            <div class="popup-header">
+                <h2><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                <button class="popup-close" id="closeFaq">&times;</button>
+            </div>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        How secure is Crypted?
+                    </div>
+                    <div class="faq-answer">
+                        Crypted uses AES-256-GCM encryption with 200,000 PBKDF2 iterations. All processing happens locally in your browser.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        How does automatic mode detection work?
+                    </div>
+                    <div class="faq-answer">
+                        Crypted automatically detects .encrypted files and switches to decryption mode. Regular files keep encryption mode.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        What makes a password strong?
+                    </div>
+                    <div class="faq-answer">
+                        Use at least 12 characters with uppercase, lowercase, numbers, and special characters.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        Can I recover files if I forget the password?
+                    </div>
+                    <div class="faq-answer">
+                        No. Without the correct password, encrypted files cannot be recovered.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        Is there a file size limit?
+                    </div>
+                    <div class="faq-answer">
+                        Files up to 500MB typically work well, but larger files may affect performance.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-right"></i>
+                        How do I know my files are safe?
+                    </div>
+                    <div class="faq-answer">
+                        Crypted operates 100% locally. No data leaves your computer.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
